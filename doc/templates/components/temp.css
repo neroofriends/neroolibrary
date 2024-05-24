@@ -1,0 +1,393 @@
+{% load static %}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/google-sans');
+@import url('https://fonts.cdnfonts.com/css/yahoo');
+
+@import url('https://cdn.jsdelivr.net/npm/denali-css/css/denali.css');
+@import url('https://cdn.jsdelivr.net/npm/denali-icon-font/dist/denali-icon-font.css');
+
+
+@font-face {
+	font-family: "Product";
+	src: url('{% static "google-font/GoogleSans-Regular.ttf" %}') format('truetype');
+}
+
+@font-face {
+	font-family: "Product-bold";
+	src: url('{% static "google-font/GoogleSans-Bold.ttf" %}') format('truetype');
+}
+
+
+*{
+	font-family: Roboto, Arial, sans-serif;
+	padding: 0;
+	margin: 0;
+	z-index: 1;
+	color: #050505;
+}
+
+.bold{
+	font-family: Roboto, Arial, sans-serif;
+	font-weight: 500;
+}
+
+.bold-semi{
+	font-family: Roboto, Arial, sans-serif;
+	font-weight: 500;
+}
+
+body{
+	background-color: white;
+}
+
+nav{
+	z-index: 2;
+	background: #fffffffa;
+  	backdrop-filter: blur(3px);
+  	backdrop-filter: saturate(180%) blur(3px);
+  	-webkit-backdrop-filter: saturate(180%) blur(3px);
+}
+
+nav *{
+	font-size: 14px;
+	cursor: pointer;
+	user-select: none;
+	font-family: 'Product Sans', sans-serif !important;
+}
+
+nav a:hover *{
+	color: #111 !important;
+}
+
+nav .active{
+	color: #111;
+}
+
+.userz{
+	color: #0852b3 !important;
+}
+
+.upload-site{
+	border-radius: 5px;
+}
+
+.opt img{
+	height: 30px;
+}
+
+.opt{
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #eaeaea;
+}
+
+.title{
+	font-size: 22px;
+	color: #3f4348;
+}
+
+.bread-crums *{
+	color: #707070;
+}
+
+.bread-crums a{
+	text-decoration: none;
+}
+
+.bread-crums .active{
+	background-color: #404eed30;
+	color: #404eed;
+	border-color: #404eed01;
+}
+
+.bg-white{
+	background-color: #fff;
+}
+
+.card-2{
+	border-bottom: 1px solid #dadce0;
+}
+
+.file-title{
+	font-weight: 500;
+	font-family: 'Product Sans', sans-serif !important;
+}
+
+.file-tile:hover{
+	background-color: #fcfcfc;
+}
+
+.file-tile:hover .file-title{
+	color: #174ea6;
+}
+
+.card{
+	margin-top: 7px;
+	margin-bottom: 7px;
+	border-radius: 5px;
+	margin-left: 4px;
+	margin-right: 4px;
+	overflow: hidden;
+	border: 1px solid #dadce0;
+}
+
+.card-body{
+    overflow: hidden;
+    height: 200px;
+/*    background-color: #f2f2f2;*/
+}
+
+.pdfs .col:nth-child(even) .card-body {
+/*	background-color: #eaedf540;*/
+}
+
+.card-image{
+    object-fit: cover;
+    max-width: 100%;
+	max-height: 100%;
+    object-position: center;
+}
+
+.doc-details{
+	margin-right: 2px;
+}
+
+.doc-details *{
+	font-weight: 400 !important;
+	color: #505050;
+}
+
+.text-sec{
+	color: #505050;
+}
+
+.doc-title{
+	color: #050505;
+	font-weight: 500 !important;
+	font-family: 'Product Sans Medium', sans-serif;
+	overflow: hidden;
+   	text-overflow: ellipsis;
+   	display: -webkit-box;
+   	-webkit-line-clamp: 2; /* number of lines to show */
+    line-clamp: 2;
+   	-webkit-box-orient: vertical;
+   	line-height: 20px;
+   	margin-bottom: -4px;
+/*   	font-family: "Product", sans-serif;*/
+}
+
+.doc-uploader{
+	overflow: hidden;
+   	text-overflow: ellipsis;
+   	display: -webkit-box;
+   	-webkit-line-clamp: 2; /* number of lines to show */
+    line-clamp: 2;
+   	-webkit-box-orient: vertical;
+}
+
+.doc-type{
+	color: #404eed;
+	font-family: Roboto, Helvetica, Arial, sans-serif;
+	
+}
+
+.doc-date{
+	font-weight: 500;
+}
+
+.doc-meta{
+	color: #5f6368;
+}
+
+.pdfs a {
+	text-decoration: none !important;
+}
+
+
+.upload-page{
+	height: 100vh;
+	position: relative;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+
+.bar {
+	border-left: 1px solid #10101040;
+}
+
+.sep{
+	height: 1px;
+	border-top: 1px solid #10101040;
+}
+
+.inp{
+	border: none;
+	outline: none;
+	border-bottom: 2px solid #eaeaea;
+}
+
+.inp:focus{
+	border-bottom-color: #0d66d0;
+	border-bottom-width: 3px;
+}
+
+.or-lines{
+	height: 1px;
+	border-bottom: 1px solid #eaeaea;
+}
+
+.light{	color: #4b4b4b !important; }
+.light-2{ color: #505050 !important;}
+.dark{ color: #232323 !important; }
+
+.a{
+	text-decoration: none;
+	color: #0f69d6;
+}
+
+.a-none{
+	text-decoration: none !important;
+}
+
+.a-none{ text-decoration: none; }
+
+.bn{
+	border: none;
+	outline: none;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 30px;
+	font-size: 16px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.bn-wide{
+	padding-top: 10px
+	padding-bottom: 13px
+}
+
+.bn-lg{
+	padding-top: 20px
+	padding-bottom: 23px
+}
+
+.bn-blue{
+	background-color: #0265dc;
+	color: white;
+	border: 1px solid #0265dc;
+}
+
+.banner{
+	background-color: #0265dc;
+}
+
+.banner-red{
+	background-color: #ea3829;
+}
+
+.banner *{
+	color: white;
+}
+
+.banner-remove{
+	cursor: pointer;
+}
+
+.bn-red{
+	background-color: #ea3829;
+	color: white;
+	border: 1px solid #ea3829;
+}
+
+.bn-red:hover{
+	background-color: white;
+	color: #ea3829;
+}
+
+.bn-black{
+	background-color: transparent;
+	color: #979797 !important;
+	border: 1px solid #777777;
+}
+
+.bn-black *{ color: #979797; }
+
+.bn-black:hover{
+	background-color: #979797;
+	color: white !important;
+}
+
+.bn-custom{
+	background-color: #f6851120;
+	color: #653504 !important;
+	border: 1px solid #f6851110;
+}
+
+.bn-custom *{
+	color: inherit;
+}
+
+.bn-outline{
+	align-items: center;
+	border: 1px solid #b0b0b0;
+	background: linear-gradient(180deg,#0000 50%,#0b151e05),#fff;
+	color: #606060;
+	box-shadow: 0 1px 1px #00000014;
+}
+
+.bn-outline:hover{
+	border-color: #11111190;
+	color: #303030;
+}
+
+.bn-green{
+	background: linear-gradient(180deg,#0000 50%,#0b151e0f),#3cb46e;
+	box-shadow: 0 1px 1px #00000014;
+	color: #fff;
+	align-items: center;
+	border: 1px solid #0000;
+}
+
+.related{
+	color: #404040;
+	background-color: #eeeeee;
+	border-radius: 4px;
+}
+
+.related:hover{
+	color: #111;
+	background-color: #dddddd;
+}
+
+.bn2{
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+	border-radius: 6px !important;
+}
+
+
+.drop-down{
+	position: absolute;
+	background-color: white;
+	border: 1px solid #dddddd;
+	top: 53px;
+	width: 40vw;
+	right: 12px;
+	border-radius: 6px;
+	box-shadow: 0 8px 16px #00000029;
+}
+
+.drop-down .bold{
+	color: #101010;
+	font-size: 16px;
+}

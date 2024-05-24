@@ -1,0 +1,28 @@
+{% load static %}
+
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+
+*{
+	font-family: "Inter", sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+html{
+	background-color: var(--bulma-body-background-color);
+}
+
+.context{
+	background-image: linear-gradient(to left, #fff, #f9f9f9, #fff);
+}
+
+.nunito{
+	font-family: "Nunito Sans", sans-serif;
+}
+
+.formz *{
+	font-family: "Nunito Sans", sans-serif !important;
+}

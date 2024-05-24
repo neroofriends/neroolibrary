@@ -1,0 +1,54 @@
+{% load static %}
+<style type="text/css">
+    .search{
+/*        background-color: #446ef4;*/
+    }
+
+    .r-f{
+        border-radius: 50px !important;
+        box-shadow: none !important;
+        outline: none !important;
+        background-color: #f5f5f5;
+        border: none;
+    }
+
+    .i-c *{
+        color: #606060;
+    }
+
+    .r-f::placeholder{
+        color: #707070;
+    }
+
+    .pointer{
+        cursor: pointer;
+    }
+
+    .control-me *{
+        font-size: 17px !important;
+    }
+
+    @media (max-width: 768px) {
+
+    }
+
+</style>
+
+<div class="search flex py-10 pb-3 pt-5-md justify-center">
+    <form method="GET" class="col-5 col-6-xl col-7-lg col-8-md col-9-sm field mt-7 mt-9-md" action="{% url 'discover' %}">
+        <p class="control control-me round-full has-icons-left has-icons-right align-items-center">
+            <input id="searchy" name="searcher" class="r-f input" type="text" placeholder="Search for notes and books...">
+            <span class="i-c icon is-small is-left">
+                <i class="fas fa-search"></i>
+            </span>
+            <span id="del-searchy" class="i-c2 icon is-small is-right pointer">
+                <i class="fas fa-times"></i>
+            </span>
+        </p>
+    </form method="GET">
+</div>
+
+
+<script type="text/javascript">
+
+</script>

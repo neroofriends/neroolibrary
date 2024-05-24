@@ -1,0 +1,9 @@
+<div class="col-3 col-4-md col-10-sm vh-100 h-auto-sm has-text-white " style="background-color: #4f76f5;">
+	<div class="p-4-xxl py-2-sm px-4-sm h-100">
+		<a href="{% url 'home' %}"><p class="is-size-4 bold has-text-white"><i class="fas fa-arrow-left"></i> Neroo Library</p></a>
+
+		<div class="h-100 d-none-sm flex align-items-center">
+			{% include 'components/load-svg.html' with docs=docs %}
+		</div>
+	</div>
+</div>

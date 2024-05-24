@@ -1,0 +1,18 @@
+<div id="ui" class="pdfs grid-container grid-6 grid-5-xl grid-4-lg grid-3-md grid-2-sm">
+	{% for doc in docs %}
+		<div class="col">
+			<div class="card justify-center">
+				<div class="card-body py-2 mb-2 flex justify-center" onclick="showViewer('{{doc.title}}', '{{doc.get}}', '{{doc.thumbnail}}', '{{doc.date}}', '{{doc.author}}', '{{doc.doc_description}}')">
+					<img src="{{doc.thumbnail}}" class="card-image" alt="">
+				</div>
+				<div class="flex px-2 px-1-md justify-between">
+					<div class="mt-1 doc-details">
+						<p class="doc-title bold">{{doc.title}}</p>
+						<p class="text-md text-sm-md pr-1 doc-uploader">{{doc.author}}</p>
+						<p class="doc-date text-md text-sm-md mb-2">{{doc.date}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>

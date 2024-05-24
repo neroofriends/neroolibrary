@@ -1,0 +1,47 @@
+<style type="text/css">
+	.bd-tw{
+		background-color: #fefefe;
+	    border-radius: 6px;
+	    color: #1c2022;
+	    flex-shrink: 0;
+	    font-size: 16px;
+	    height: 100%;
+	    border: 1px solid #fafafa;
+	}
+
+	.bd-tw *{
+		font-family: "Nunito Sans", sans-serif;
+	}
+
+	.article-header{
+		font-weight: 700 !important;
+		font-family: "Nunito Sans", sans-serif;
+	}
+
+	.article-date{
+		color: #495862;
+	}
+
+	.bd-tw:hover{
+		background-color: #fafafa50;
+		border-color: #2c6bed20;
+	}
+
+	.bd-tw:hover .article-header{
+		color: #2c6bed;
+	}
+
+</style>
+<div  class="flex flex-wrap">
+	{% for doc in docs %}
+		<div class="col-3 col-5-lg col-10-sm mb-3 single_file">
+			<a class="a" target="_blank" href="{{doc.get}}">
+				<div class="bd-tw mx-1 justify-center p-3-xxl p-2-md">
+					<p class="article-header">{{doc.title|title}}</p>
+					<p class="text-sm mb-1 article-date">@{{doc.author}}</p>
+					<p class="text-sm mb-1 article-date"><i class="bi bi-calendar"></i> &nbsp;{{doc.date}}</p>
+				</div>
+			</a>
+		</div>
+	{% endfor %}
+</div>

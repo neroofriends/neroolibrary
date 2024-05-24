@@ -1,0 +1,146 @@
+<style type="text/css">
+	.pagination *{
+		user-select: none;
+		color: #000000de;
+	}
+
+	.page {
+		background-color: #ebebeb;
+		height: 40px;
+		width: 40px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: bold;
+	}
+
+	.page-2 {
+		color: white;
+		height: 40px;
+		width: 40px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #050505;
+		font-weight: bold;
+		font-weight: bold;
+	}
+</style>
+
+
+<div class="flex justify-center mb-10">
+	<div class="col-5 col-6-xl col-7-lg col-8-md">
+		<p id="load-more" class="button is-link is-large is-fullwidth">Load more</p>
+	</div>
+</div>
+
+<div class="d-none-xxl">
+	{{total_books|json_script:"json-total-books"}}
+	{{total_files|json_script:"json-total-files"}}
+	{{search|json_script:"json-search-results"}}
+</div>
+
+<script type="text/javascript" defer>
+    const loadButton = document.getElementById('load-more');
+
+    const searchResult = JSON.parse(document.getElementById('json-search-results').textContent);
+    const total_b = JSON.parse(document.getElementById('json-total-books').textContent);
+    const total_f = JSON.parse(document.getElementById('json-total-files').textContent);
+
+
+    function loadmorePost() {
+        var _current_book = $('.single_book').length
+        var _current_file = $('.single_file').length
+	    var _loadMoreData = $('#more-data');
+
+
+        if (searchResult == ''){
+        	loadButton.innerText = 'Search something';
+        	return;
+        }
+
+        $.ajax({
+            url: '{% url "load-search" %}',
+            type: 'GET',
+            data: {
+                'offset_b': _current_book,
+                'offset_f': _current_file,
+                'search': searchResult,
+            },
+            
+            beforeSend: function () {
+                loadButton.classList.add('is-loading');
+            },
+
+            success: function (response) {
+                const data = response.posts;
+                _render = false;
+                var new_data = ''
+                
+                if (data.length > 0) {
+                	_render = true;
+                	new_data += `<div class="px-20 px-15-xl px-10-lg px-5-md px-2-sm">
+	                				<div class="contentz pdfs grid-container grid-2-lg grid-1-sm grid-3 grid--sm">
+	                `
+
+	                data.map(doc2 => {
+	                    new_data += `<div class="col n-card-p single_book">
+										<a href="${doc2.get}" target="_blank" class="book"><div class="flex n-card mx-1">
+											<img class="img ca-img col-3" src="${doc2.thumbnail}">
+											<div class="flex-grow px-3 ">
+												<p class="bold book-title" style="margin-bottom: 7px;">${doc2.title}</p>
+												<p class="text-md" style="margin-bottom: 10px;">${doc2.doc_description}</p>
+												<p class="text-sm" style="margin-bottom: 4px;">@${doc2.author} &nbsp; <i class="pl-2 bi bi-calendar"></i> ${doc2.date}</p>
+											</div>
+										</div></a>
+									</div>`
+
+	                })
+
+	                new_data += '</div></div>'
+	            }
+
+                const data_files = response.posts_f;
+
+                if (data_files.length > 0) {
+	                _render = true;
+	                new_data += `<div class="px-20 px-15-xl px-10-lg px-5-md px-2-sm mt-4 mb-5 mt-2-md">
+	                				<div  class="flex flex-wrap">`
+
+	                data_files.map(fileX => {
+	                	new_data += `<div class="col-3 col-5-lg col-10-sm mb-3 single_file">
+										<a class="a" target="_blank" href="${fileX.get}">
+											<div class="bd-tw mx-1 justify-center p-3-xxl p-2-md">
+												<p class="article-header is-capitalized">${fileX.title}</p>
+												<p class="text-sm mb-1 article-date">@${fileX.author}</p>
+												<p class="text-sm mb-1 article-date"><i class="bi bi-calendar"></i> &nbsp;${fileX.date}</p>
+											</div>
+										</a>
+									</div>`
+	                });
+
+	                new_data += '</div></div>'
+            	}
+
+            	if (_render) {
+            		// render if more data exists
+                	_loadMoreData.append(new_data);
+                	loadButton.classList.remove('is-loading');
+            	} else {
+            		// hide load more button if no more data tp render
+            		loadButton.style.display = 'none';
+            	}
+
+            },
+            error: function (err) {
+                console.log(err);
+            },
+        });
+    }
+
+    loadButton.onclick = ()=>{
+        loadmorePost()
+    };
+</script>
