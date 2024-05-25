@@ -32,7 +32,7 @@
 
 <div class="flex justify-center mb-10">
 	<div class="col-5 col-6-xl col-7-lg col-8-md">
-		<p id="load-more" class="button is-link is-large is-fullwidth">Load more</p>
+		<p id="load-more" class="button is-medium is-fullwidth">Load more</p>
 	</div>
 </div>
 
@@ -46,12 +46,10 @@
     const loadButton = document.getElementById('load-more');
 
     const searchResult = JSON.parse(document.getElementById('json-search-results').textContent);
-    const total_b = JSON.parse(document.getElementById('json-total-books').textContent);
     const total_f = JSON.parse(document.getElementById('json-total-files').textContent);
 
 
     function loadmorePost() {
-        var _current_book = $('.single_book').length
         var _current_file = $('.single_file').length
 	    var _loadMoreData = $('#more-data');
 
@@ -65,7 +63,6 @@
             url: '{% url "load-search" %}',
             type: 'GET',
             data: {
-                'offset_b': _current_book,
                 'offset_f': _current_file,
                 'search': searchResult,
             },
@@ -75,33 +72,9 @@
             },
 
             success: function (response) {
-                const data = response.posts;
                 _render = false;
                 var new_data = ''
                 
-                if (data.length > 0) {
-                	_render = true;
-                	new_data += `<div class="px-20 px-15-xl px-10-lg px-5-md px-2-sm">
-	                				<div class="contentz pdfs grid-container grid-2-lg grid-1-sm grid-3 grid--sm">
-	                `
-
-	                data.map(doc2 => {
-	                    new_data += `<div class="col n-card-p single_book">
-										<a href="${doc2.get}" target="_blank" class="book"><div class="flex n-card mx-1">
-											<img class="img ca-img col-3" src="${doc2.thumbnail}">
-											<div class="flex-grow px-3 ">
-												<p class="bold book-title" style="margin-bottom: 7px;">${doc2.title}</p>
-												<p class="text-md" style="margin-bottom: 10px;">${doc2.doc_description}</p>
-												<p class="text-sm" style="margin-bottom: 4px;">@${doc2.author} &nbsp; <i class="pl-2 bi bi-calendar"></i> ${doc2.date}</p>
-											</div>
-										</div></a>
-									</div>`
-
-	                })
-
-	                new_data += '</div></div>'
-	            }
-
                 const data_files = response.posts_f;
 
                 if (data_files.length > 0) {

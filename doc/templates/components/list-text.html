@@ -1,10 +1,10 @@
 <style type="text/css">
 	.bd-tw{
-		background-color: #fefefe;
+		background-color: #fff;
 	    border-radius: 6px;
 	    color: #1c2022;
 	    flex-shrink: 0;
-	    font-size: 16px;
+	    font-size: 17px;
 	    height: 100%;
 	    border: 1px solid #fafafa;
 	}
@@ -14,6 +14,7 @@
 	}
 
 	.article-header{
+		font-size: 18px;
 		font-weight: 700 !important;
 		font-family: "Nunito Sans", sans-serif;
 	}
@@ -38,8 +39,12 @@
 			<a class="a" target="_blank" href="{{doc.get}}">
 				<div class="bd-tw mx-1 justify-center p-3-xxl p-2-md">
 					<p class="article-header">{{doc.title|title}}</p>
-					<p class="text-sm mb-1 article-date">@{{doc.author}}</p>
-					<p class="text-sm mb-1 article-date"><i class="bi bi-calendar"></i> &nbsp;{{doc.date}}</p>
+					<p class="has-text-dark">{{doc.descr}}</p>
+
+					<div class="flex flex-wrap justify-between">
+						<p class="text-md  mb-1 py-2 article-date">@{{doc.author}}</p>
+						<p class="text-md  mb-1 py-2 article-date"><i class="bi bi-calendar"></i> &nbsp;{{doc.date}}</p>
+					</div>
 				</div>
 			</a>
 		</div>

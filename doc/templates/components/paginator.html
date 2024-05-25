@@ -32,7 +32,7 @@
 
 <div class="flex justify-center mb-10">
 	<div class="col-5 col-6-xl col-7-lg col-8-md">
-		<p id="load-more" class="button is-link is-large is-fullwidth">Load more</p>
+		<p id="load-more" class="button is-family-secondary is-medium is-fullwidth">Load more</p>
 	</div>
 </div>
 
@@ -48,16 +48,13 @@
     const total_f = JSON.parse(document.getElementById('json-total-files').textContent);
 
     function loadmorePost() {
-        var _current_book = $('.single_book').length
         var _current_file = $('.single_file').length
-
         var _loadMoreData = $('#more-data');
 
         $.ajax({
             url: '{% url "load" %}',
             type: 'GET',
             data: {
-                'offset_b': _current_book,
                 'offset_f': _current_file,
             },
             
@@ -66,31 +63,7 @@
             },
 
             success: function (response) {
-                const data = response.posts;
                 _render = false;
-                
-                if (data.length > 0) {
-                	_render = true;
-                	new_data = `<div class="px-20 px-15-xl px-10-lg px-5-md px-2-sm mb-5">
-	                				<div class="contentz mt-5 pdfs grid-container grid-2-lg grid-1-sm grid-3 grid--sm">
-	                `
-
-	                data.map(doc2 => {
-	                    new_data += `<div class="col n-card-p single_book">
-										<a href="${doc2.get}" target="_blank" class="book"><div class="flex n-card mx-1">
-											<img class="img ca-img col-3" src="${doc2.thumbnail}">
-											<div class="flex-grow px-3 ">
-												<p class="bold book-title" style="margin-bottom: 7px;">${doc2.title}</p>
-												<p class="text-md" style="margin-bottom: 10px;">${doc2.doc_description}</p>
-												<p class="text-sm" style="margin-bottom: 4px;">@${doc2.author} &nbsp; <i class="pl-2 bi bi-calendar"></i> ${doc2.date}</p>
-											</div>
-										</div></a>
-									</div>`
-
-	                })
-
-	                new_data += '</div></div>'
-	            }
 
                 const data_files = response.posts_f;
 
@@ -104,8 +77,12 @@
 										<a class="a" target="_blank" href="${fileX.get}">
 											<div class="bd-tw mx-1 justify-center p-3-xxl p-2-md">
 												<p class="article-header is-capitalized">${fileX.title}</p>
-												<p class="text-sm mb-1 article-date">@${fileX.author}</p>
-												<p class="text-sm mb-1 article-date"><i class="bi bi-calendar"></i> &nbsp;${fileX.date}</p>
+												<p class="has-text-dark">${fileX.descr}</p>
+
+												<div class="flex flex-wrap justify-between">
+													<p class="text-sm mb-1 py-2 article-date">@${fileX.author}</p>
+													<p class="text-sm mb-1 py-2 article-date"><i class="bi bi-calendar"></i> &nbsp;${fileX.date}</p>
+												</div>
 											</div>
 										</a>
 									</div>`

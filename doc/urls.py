@@ -29,7 +29,6 @@ urlpatterns = [
     path('login/', views.login_user, name='login'),
     path('logout/', views.logout_user, name='logout'),
     path('signin/', views.register_user, name='signin'),
-    path('upload/', views.upload, name='upload'),
     path('terms', views.terms_and_conditions, name='terms'),
     path('uploadfile/', views.uploadText, name='uploadfile'),
     path('load/', views.load_more, name='load'),

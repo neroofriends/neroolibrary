@@ -26,6 +26,10 @@
                 border-radius: 5px;
             }
 
+            .input, .textarea{
+                font-size: 16px !important;
+            }
+
             @media screen and (max-width: 760px) {
             }
 
@@ -51,7 +55,6 @@
                                 </div>
 
                                 <div class="mt-4 mb-4">
-                                    <a href="{% url 'upload' %}"><p class="button is-link is-fullwidth">Upload another book</p></a>
                                     <a href="{% url 'uploadfile' %}"><p class="button is-link is-fullwidth mt-3">Upload another file</p></a>
                                 </div>
 
@@ -71,15 +74,21 @@
                                     {% csrf_token %}
                                     
                                     <div class="field mt-5-xxl">
-                                        <p class="is-size-6 mb-2 bold">Book title</p>
+                                        <p class="is-size-6 mb-2 bold">Notes title</p>
                                         <p class="control">
                                             {{form.title}}
                                         </p>
                                     </div>
                                     <div class="field mt-5-xxl">
-                                        <p class="is-size-6 mb-2 bold">Book source link</p>
+                                        <p class="is-size-6 mb-2 bold">Notes source link</p>
                                         <p class="control">
                                             {{form.get}}
+                                        </p>
+                                    </div>
+                                    <div class="field mt-5-xxl">
+                                        <p class="is-size-6 mb-2 bold">Simple notes description</p>
+                                        <p class="control">
+                                            {{form.descr}}
                                         </p>
                                     </div>
                                     <div class="field mt-6-xxl">
@@ -87,7 +96,6 @@
                                     </div>
                                 </form>
 
-                                <p class=" text-center mb-2 mt-6-xxl text-md">Upload a simple file! <a href="{% url 'upload' %}" class="underlined">Book upload</a></p>
                             {% endif %}
                         </div>
                     {% else %}

@@ -1,18 +1,28 @@
 {% load static %}
 <style type="text/css">
 	.navbar{
-			box-shadow: 0 2px 5px 0 rgb(0 0 0/3%);
+/*			box-shadow: 0 2px 5px 0 rgb(0 0 0/3%);*/
+/*			border-bottom: 1px solid #ebeaeb;*/
+/*			background-color: #404eed;*/
+	}
+
+	.navbar *{
+/*		font-weight: bold;*/
+/*		color: white;*/
+	}
+
+	.nav-title{
+		font-family: "Nunito Sans", sans-serif;
 	}
 
 </style>
-<nav class="navbar py-1 py-0-sm px-10 px-10-lg px-5-md px-2-sm is-fixed-top is-fixed-top " role="navigation" aria-label="main navigation">
+<nav class="navbar is-link py-1 py-0-md px-10 px-10-lg px-5-md px-2-sm is-fixed-top is-fixed-top " role="navigation" aria-label="main navigation">
 	<div class="navbar-brand">
 		<a class="navbar-item" href="{% url 'home' %}">
-			<!-- <img class="signal-logo" src=""> -->
-			<p class="is-size-4 has-text-dark bold">Neroo Library</p>
+			<p class="text-xl-3 text-xl-1-md text-xl-sm bold nav-title">Neroo Library</p>
 		</a>
 		<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-			<i class="bi bi-list text-xl-3" style="color: #363636;"></i>
+			<i class="bi bi-list text-xl-3"></i>
 		</a>
 	</div>
 	<div id="navbarBasicExample" class="navbar-menu">
@@ -24,7 +34,6 @@
 				<a class="navbar-link">Upload</a>
 				<div class="navbar-dropdown">
 					<a class="navbar-item is-selected" href="{% url 'uploadfile' %}">Upload file</a>
-					<a class="navbar-item" href="{% url 'upload' %}">Upload book</a>
 					<hr class="navbar-divider">
 					<a class="navbar-item">Report an issue</a>
 				</div>

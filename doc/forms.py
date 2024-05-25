@@ -1,5 +1,5 @@
 from django import forms
-from .models import Asset, TextPdf
+from .models import TextPdf
 
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -40,35 +40,19 @@ class SignUpForm(UserCreationForm):
                                       'for verification.</small></span>')
 
 
-class AssetForm(forms.ModelForm):
-    class Meta:
-        model = Asset
-        fields = ['title', 'get', 'thumbnail', 'doc_description']
-        labels = {
-            'title': '',
-            'get': '',
-            'thumbnail': '',
-            'doc_description': '',
-        }
-
-        widgets = {
-            'title': forms.TextInput(attrs={'class': 'input is-medium'}),
-            'get': forms.URLInput(attrs={'class': 'input is-medium'}),
-            'thumbnail': forms.URLInput(attrs={'class': 'input is-medium'}),
-            'doc_description': forms.TextInput(attrs={'class': 'input is-medium'}),
-        }
-
 
 class TextPdfForm(forms.ModelForm):
     class Meta:
         model = TextPdf
-        fields = ['title', 'get']
+        fields = ['title', 'get', 'descr']
         labels = {
             'title': '',
             'get': '',
+            'descr': ''
         }
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'input is-medium'}),
             'get': forms.URLInput(attrs={'class': 'input is-medium'}),
+            'descr': forms.Textarea(attrs={'class': 'textarea is-medium', 'rows': '5'}),
         }

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-l_j5c22l7*9jo-r@4r*l+prn@y)a_&0+x%p2v9w#v$@4907hx0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1']
 
 
 # Application definition
@@ -77,8 +77,14 @@ WSGI_APPLICATION = 'neroolibrary.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'neroodb',
+        'USER': 'adminrogers',
+        'PASSWORD': 'Ralice16sept',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 

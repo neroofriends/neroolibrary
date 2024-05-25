@@ -22,11 +22,22 @@
 		<script type="text/javascript" src="{% static 'BulmaJS-0.12.2/dist/bulma.js'%}"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
 		
+		<style type="text/css">
+			.land{
+				background-image: url('{% static "img/land.jpg" %}');
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+		</style>
+
 	</head>
 	<body>
-		
+
 		<!-- navigation bar -->
 		{% include 'components/navbar.html' with user=user %}
+
+		<div class="land vh-70"></div>
 
 		{# search  #}
 		{% include 'components/search.html' with user=user %}
@@ -35,18 +46,14 @@
 		{% if messages %}
 			{% for message in messages %}
 				<div class="banner px-7 px-5-lg px-3-md px-2-sm flex justify-between align-items-center">
-					<p class="px-2 py-2 flex align-items-center"><span class="material-symbols-outlined">info</span>  <span class="pl-3">{{message}}</span></p>
-					<p class="px-2 py-2 banner-remove"><span class="material-symbols-outlined">close</span></p>
+					<p class="px-2 py-2 flex align-items-center"><i class="fas fa-circle-exclamation"></i>  <span class="pl-3">{{message}}</span></p>
+					<p class="px-2 py-2 banner-remove"><i class="fas fa-times"></i></p>
 				</div>
 			{% endfor %}
 		{% endif %}
 
 
 		<div class="context pt-1" id="more-data">
-			<div class="px-20 px-15-xl px-10-lg px-5-md px-2-sm mb-5">
-				{% include 'components/list-docs.html' with docs=docs %}
-			</div>
-
 			<div class="px-20 px-15-xl px-10-lg px-5-md px-2-sm mt-4 mb-10 mt-2-md">
 				{% include 'components/list-text.html' with docs=doc_files %}
 			</div>

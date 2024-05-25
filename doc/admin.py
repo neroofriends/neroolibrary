@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Asset, TextPdf
+from .models import TextPdf
 
 # Register your models here.
-admin.site.register(Asset)
 admin.site.register(TextPdf)
